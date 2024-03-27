@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('background-image.jpg');
+    /* Add the background image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.weather-widget {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5vh 5vw;
+    /* Adjusted padding using viewport units */
+    border-radius: 15px;
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    width: calc(100vw - 80px);
+    /* Adjusted width using viewport units */
+    height: calc(100vh - 80px);
+    /* Adjusted height using viewport units */
+}
+
+.weather-widget {
+    position: relative;
+    /* Ensure relative positioning */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 100px 480px;
+    /* Increased padding from left and right */
+    border-radius: 15px;
+    /* Increased border radius */
+}
+
+.weather-widget {
+    position: relative;
+    /* Ensure relative positioning */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 170px 480px;
+    /* Increased padding from left and right */
+    border-radius: 15px;
+    /* Increased border radius */
+}
+
+.weather-info {
+    position: absolute;
+    /* Position absolutely within the relative parent */
+    left: 100px;
+    /* Adjust as needed for spacing */
+    bottom: 80px;
+    /* Adjust as needed for spacing */
+    text-align: left;
+    color: #fff;
+}
+
+.weather-info h1 {
+    font-size: 6rem;
+    margin: 10px 0;
+}
+
+.time {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.blocks {
+    position: absolute;
+    left: 50%;
+    /* Position the blocks horizontally in the center of the left half */
+    bottom: 50px;
+    transform: translateX(-20%);
+    /* Center the blocks horizontally */
+}
+
+.blocks .block1,
+.blocks .block2 {
+    width: 500px;
+    /* Increased width */
+    height: 200px;
+    /* Increased height */
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.blocks .block1 {
+    margin-bottom: 20px;
+    /* Adjusted margin */
+}
