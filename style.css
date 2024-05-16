@@ -1,9 +1,10 @@
+/* Original CSS */
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-image: url('background-image.jpg');
-    /* Add the background image path */
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -13,55 +14,63 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative;
+    /* Added */
 }
 
-.weather-widget {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5vh 5vw;
-    /* Adjusted padding using viewport units */
+.container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
     border-radius: 15px;
-    box-sizing: border-box;
-    /* Include padding and border in the element's total width and height */
-    width: calc(100vw - 80px);
-    /* Adjusted width using viewport units */
-    height: calc(100vh - 80px);
-    /* Adjusted height using viewport units */
+}
+
+.blur-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px);
+    z-index: -1;
+    border-radius: 15px;
 }
 
 .weather-widget {
     position: relative;
-    /* Ensure relative positioning */
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 100px 480px;
-    /* Increased padding from left and right */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 260px 600px;
     border-radius: 15px;
-    /* Increased border radius */
-}
-
-.weather-widget {
-    position: relative;
-    /* Ensure relative positioning */
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 170px 480px;
-    /* Increased padding from left and right */
-    border-radius: 15px;
-    /* Increased border radius */
 }
 
 .weather-info {
     position: absolute;
-    /* Position absolutely within the relative parent */
     left: 100px;
-    /* Adjust as needed for spacing */
     bottom: 80px;
-    /* Adjust as needed for spacing */
     text-align: left;
     color: #fff;
+    margin-left: 50px;
+}
+
+.weather-info .temperature-icon {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
 }
 
 .weather-info h1 {
     font-size: 6rem;
     margin: 10px 0;
+    margin-top: 50px;
 }
 
 .time {
@@ -71,23 +80,176 @@ body {
 
 .blocks {
     position: absolute;
-    left: 50%;
-    /* Position the blocks horizontally in the center of the left half */
-    bottom: 50px;
-    transform: translateX(-20%);
-    /* Center the blocks horizontally */
+    left: 70%;
+    bottom: 40px;
+    transform: translateX(-50%);
 }
 
-.blocks .block1,
 .blocks .block2 {
-    width: 500px;
-    /* Increased width */
-    height: 200px;
-    /* Increased height */
-    background-color: rgba(255, 255, 255, 0.3);
+    width: 600px;
+    height: 420px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 0.1px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns for the first row */
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1px;
 }
 
-.blocks .block1 {
-    margin-bottom: 20px;
-    /* Adjusted margin */
+.blocks .block2>div:nth-child(3),
+.blocks .block2>div:nth-child(4) {
+    grid-column: span 2;
+    /* Make the items in the second row span both columns */
+}
+
+.blocks .block2 .sub_block1,
+.blocks .block2 .sub_block2
+{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.blocks .block2 .sub_block3{
+    background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        margin: 10px;
+        margin-left: 100px;
+        margin-right: 100px;
+}
+
+.blocks .block2 .sub_block1 .info h2,
+.blocks .block2 .sub_block2 .info h2,
+.blocks .block2 .sub_block3 .info h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+    color: #fff;
+    
+}
+
+.blocks .block2 .sub_block1 .info p,
+.blocks .block2 .sub_block2 .info p,
+.blocks .block2 .sub_block3 .info p {
+    font-size: 1.2rem;
+    margin-left: 30px;
+    color: #fff;
+    
+}
+
+.blocks .block2 .sub_block1 img{
+    width: 80px;
+        /* Adjust as needed */
+        height: 80px;
+        /* Adjust as needed */
+        margin-bottom: 10px;
+        float: left;
+        /* Float the images to the left */
+        margin-left: 180px;
+        margin-top: 70px;
+        /* Adjust spacing between image and text */
+}
+.blocks .block2 .sub_block2 img{
+    width: 80px;
+        /* Adjust as needed */
+        height: 80px;
+        /* Adjust as needed */
+        margin-bottom: 10px;
+        float: left;
+        /* Float the images to the left */
+        margin-left: 480px;
+        margin-top: 70px;
+        /* Adjust spacing between image and text */
+}
+.blocks .block2 .sub_block3 img {
+    width: 80px;
+    /* Adjust as needed */
+    height: 80px;
+    /* Adjust as needed */
+    margin-bottom: 10px;
+    float: left;
+    /* Float the images to the left */
+    margin-left: 350px;
+    margin-top: 280px;
+    /* Adjust spacing between image and text */
+}
+
+/* Responsive Adjustments */
+
+@media screen and (max-width: 1200px) {
+    .weather-widget {
+        padding: 150px 100px;
+    }
+
+    .weather-info {
+        left: 50px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .weather-widget {
+        padding: 150px 50px;
+    }
+
+    .weather-info {
+        left: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .weather-info .temperature-icon {
+        width: 150px;
+        top: -80px;
+    }
+
+    .weather-info h1 {
+        font-size: 4rem;
+    }
+
+    .time {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .weather-widget {
+        padding: 100px 20px;
+    }
+
+    .weather-info {
+        left: 10px;
+        bottom: 50px;
+    }
+
+    .weather-info .temperature-icon {
+        width: 100px;
+        top: -60px;
+    }
+
+    .weather-info h1 {
+        font-size: 3rem;
+    }
+
+    .time {
+        font-size: 0.6rem;
+    }
+
+    .blocks {
+        bottom: 20px;
+    }
+
+    .blocks .block2 {
+        width: 90%;
+        max-height: 300px;
+        padding: 5px;
+        gap: 5px;
+    }
 }
