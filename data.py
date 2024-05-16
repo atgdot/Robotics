@@ -6,11 +6,6 @@ import datetime
 fieldnames = ["x_value", "Pressure", "Temperature", "Humidity"]
 x_value = 0
 
-# Open the CSV file in write mode and write the header
-with open('arduinoP&T_data.csv', 'w', newline='') as csv_file:
-    csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-    csv_writer.writeheader()
-
 # Open the serial port connection
 ser = serial.Serial('COM8', 9600)  # Change the port name to match your setup
 
@@ -26,17 +21,9 @@ while True:
     temperature = parts[1].split('=')[1].strip('C')
     humidity = parts[2].split('=')[1].strip('%')
 
-    # Get the current timestamp
-    current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # Write the data to the CSV file
-    with open('arduinoP&T_data.csv', 'a', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writerow({"x_value": x_value, "Pressure": pressure, "Temperature": temperature, "Humidity": humidity})
-
-    # # Write the data to the text file with timestamp
-    with open('text_file.txt', 'a') as file:
-        file.write(f'{data} ({current_time})\n')
+    # Write the data to the text file with timestamp
+    with open('data.txt', 'w') as file:
+        file.write(f'{pressure},{temperature},{humidity}\n')
 
     x_value += 1
     time.sleep(1)
