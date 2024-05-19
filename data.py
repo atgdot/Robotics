@@ -41,4 +41,4 @@ while True:
         file.write(f'{data} ({current_time})\n')
 
     x_value += 1
-    time.sleep(1)
+    time.sleep(10)

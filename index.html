@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="script.js" defer></script>
 </head>
-
-<body>
+<body onload="init()">
     <div class="container">
-        <img src="Images/m.jpg" alt="Background Image" class="blur-image">
+        <img id="backgroundImage" alt="Background Image" class="blur-image">
         <div class="weather-widget">
-            <img src="Images/m.jpg" alt="Background Image">
+            <img id="backgroundImage2"  alt="Background Image">
             <div class="weather-info">
-                <h1>23°C</h1>
+                <h1 id="temperature">23°C</h1>
                 <p>Bangalore</p>
-                <p class="time">10:43 | H32° L19°</p>
+                <p class="time" id="currentTime">10:43 | H32° L19°</p>
                 <img src="Images/cloudy.png" alt="Temperature Icon" class="temperature-icon">
             </div>
             <div class="blocks">
-                <!-- <div class="block1"></div> -->
                 <div class="block2">
                     <div class="sub_block1">
                         <img src="Images/pressure.png" alt="Logo">
@@ -28,7 +27,6 @@
                             <h2>Pressure</h2>
                             <p class="value"><span id="pressure">1013</span> hPa</p>
                         </div>
-                        
                     </div>
                     <div class="sub_block2">
                         <img src="Images/humidity.png" alt="Logo">
@@ -44,14 +42,9 @@
                             <p class="value"><span id="lightIntensity">800</span> Lux</p>
                         </div>
                     </div>
-
-
-                    <!-- <div class="sub_block4"></div> -->
-
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>
