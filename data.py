@@ -3,7 +3,7 @@ import csv
 import time
 import datetime
 
-fieldnames = ["x_value", "Pressure", "Temperature", "Humidity"]
+fieldnames = ["x_value", "Pressure", "Temperature", "Humidity","Light Intensity"]
 x_value = 0
 
 # Open the CSV file in write mode and write the header
@@ -17,14 +17,14 @@ ser = serial.Serial('COM8', 9600)  # Change the port name to match your setup
 while True:
     # Read data from the serial port
     data = ser.readline().decode().strip()
-    print(data)
 
     # Split the received data into pressure, temperature, and humidity
-    parts = data.split()
+    parts = data.split(',')
     # Extract the values and convert them to the desired format
     pressure = parts[0].split('=')[1].strip('hPa')
     temperature = parts[1].split('=')[1].strip('C')
     humidity = parts[2].split('=')[1].strip('%')
+    Light_intensity= parts[4].split('=')[1].strip('lx')
 
     # Get the current timestamp
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -32,7 +32,9 @@ while True:
     # Write the data to the CSV file
     with open('arduinoP&T_data.csv', 'a', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writerow({"x_value": x_value, "Pressure": pressure, "Temperature": temperature, "Humidity": humidity})
+        dic = {"x_value": int(x_value), "Pressure": int(pressure), "Temperature": float(temperature), "Humidity": humidity,"Light Intensity": int(Light_intensity)/100}
+        print(dic)
+        writer.writerow(dic)
 
     # # Write the data to the text file with timestamp
     with open('text_file.txt', 'a') as file:
