@@ -24,7 +24,7 @@ while True:
     pressure = parts[0].split('=')[1].strip('hPa')
     temperature = parts[1].split('=')[1].strip('C')
     humidity = parts[2].split('=')[1].strip('%')
-    Light_intensity= parts[4].split('=')[1].strip('lx')
+    Light_intensity = parts[4].split('=')[1].strip('lx')
 
     # Get the current timestamp
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

@@ -9,7 +9,7 @@ function updateBackgroundImage() {
     const backgroundImage = document.getElementById('backgroundImage');
     const backgroundImage2 = document.getElementById('backgroundImage2');
     
-    if (hours >= 6 && hours < 16) {
+    if (hours >= 6 && hours < 25) {
         backgroundImage.src = 'Images/m.jpg'; // Change to your day image path
         backgroundImage2.src = 'Images/m.jpg'; // Change to your day image path
     }
